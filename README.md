@@ -1,4 +1,4 @@
-# [Hugo Landing Page Theme](https://github.com/HugoBlox/theme-landing-page)
+# [Callysto Landing Page](https://callysto.ca)
 
 [![Screenshot](./.github/preview.webp)](https://hugoblox.com/templates/)
 
