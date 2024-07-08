@@ -35,8 +35,9 @@ profiles:
     url: https://www.facebook.com/callystocanada/
   - icon: brands/youtube
     url: https://www.youtube.com/Callysto
-  - icon: brands/tiktok
-    url: https://www.tiktok.com/@callysto_canada
+# Not currently defined in hugo blox
+#  - icon: brands/tiktok
+#    url: https://www.tiktok.com/@callysto_canada
 
   # Link to a PDF of your resume/CV - upload it to `static/uploads/resume.pdf`
   # - icon: academicons/cv
