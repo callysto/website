@@ -5,85 +5,65 @@ We would like to express our sincere gratitude to everyone who contributed to th
 
 Special thanks go to the non-profit organizations <a href="https://www.cybera.ca">Cybera</a> and the <a href="https://www.pims.math.ca/">Pacific Institute for the Mathematical Sciences (PIMS)</a> for their dedicated facilitation of the program since its launch in 2017 until 2024. Additionally, we are grateful for the generous funding from the national CanCode program, which has been essential to the success and impact of Callysto over the years.
 
-
-<b>Dr. Byron Chu</b><br>
-Callysto Project Manager
-Data Scientist, Cybera
-
-<b>Dr. Cathy Adams</b><br>
-Department of Secondary Education, Computing Science Education, Faculty of Education, University of Alberta
-
-<b>Dr. Ian Allison</b><br>
-Systems and Network Manager, PIMS
-
-<b>Professor James Colliander</b><br>
-Director, PIMS
-
-<b>Ozgur Yilmaz</b><br>
-Director, PIMS
-
-<b>Elmar Bouwer</b><br>
-Project Manager
-
-<b>Maria Cutumisu</b><br>
-Callysto Research Assessment Team Lead
-
-<b>Meagan Hampel</b><br>
-Communications Director, Cybera
-
-<b>Laura Hutchinson</b><br>
-Communications & Design Specialist (Cybera)
-
-<b>Professor Michael Lamoureux</b><br>
-Innovation Coordinator, PIMS, Callysto Ambassador for B.C.
+<h2>Current</h2>
 
 <b>David Hay</b><br>
-Learning & Development Manager, Callysto Ambassador for Alberta
+Director, Callysto Education Initiative
+
+<b>Dr. Ian Allison</b><br>
+Director, Callysto Education Initiative
+
+<b>Dr. Byron Chu</b><br>
+Director, Callysto Education Initiative
+
+<h2>Hall of Fame</h2>
+
+<b>Dr. Maria Cutumisu</b><br>
+
+<b>Dr. Cathy Adams</b><br>
+
+<b>Dr. James Colliander</b><br>
+
+<b>Dr. Ozgur Yilmaz</b><br>
+
+<b>Dr. Michael Lamoureux</b><br>
+
+<b>Elmar Bouwer</b><br>
+
+<b>Meagan Hampel</b><br>
+
+<b>Laura Hutchinson</b><br>
 
 <b>Brad White</b><br>
-Project Manager
 
 <b>Laura Gutierrez-Funderburk</b><br>
-Data Scientist
 
 <b>Dr. Verena Roberts</b><br>
-Education Specialist
 
 <b>Lisa Cao</b><br>
-Data Science Intern
 
-<b>Tina Leard</b><br>
-Education Specialist 
+<b>Tina Leard</b><br> 
 
 <b>Alyaa Mohamed</b><br>
-Data Science Intern
+
+<b>Mahdad Eghbalian</b><br>
 
 <b>Bryce Haley</b><br>
-Data Science Intern
 
 <b>Casey Knoll</b><br>
-Communications Specialist
 
 <b>Ishruna Muniyat</b><br>
-Communications Specialist
 
 <b>Mary Grant</b><br>
-Education Specialist
 
 <b>Rania Mahdi</b><br>
-Education Specialist Intern
 
 <b>Jordan Swanson</b><br>
-Data Science Intern
 
 <b>Jenny Lee</b><br>
-Data Science Intern
 
 <b>Bobbi Belsek</b><br>
-Education Specialist
 
 <b>Ayush Chaudhari</b><br>
-Data Science Intern
 
 <b>Eric Lee</b><br>
-Data Science Intern
