@@ -2,7 +2,7 @@
 title: 'Using Callysto: Teacher Starter Kit'
 date: 2024-03-31
 ---
-<!--  Videos are here: https://drive.google.com/drive/folders/1b26yufAFwGjFycY4wFGgRS4NJBoZ_pl9 -->
+<!--  Videos are here: https://drive.google.com/drive/folders/1eRi2sVPiwMIrR35rff65UfJtD_lVZ3Yz?usp=drive_link -->
 
 <p>The purpose of this starter kit is to get you comfortable with using Callysto’s free, online curriculum-tied modules in your classroom.</p>
 <h4>What do you and your students need to use Callysto?</h4>
@@ -15,9 +15,9 @@ date: 2024-03-31
 <h2>Get Familiar with Callysto</h2>
 
 {{< spoiler text="Log into the Callysto Hub" >}}
-<p>The “Hub” is your free, online workspace for the Callysto learning modules you use. <a href="CallystoPrivacyNotice-July2019.pdf">We don’t store any personal information</a>.</p>
+<p>The “Hub” is your free, online workspace for the Callysto learning modules you use. <a href="https://callysto.ca/privacy/">We don’t store any personal information</a>.</p>
 
-<p><strong><span style="color: #800080;">Video demonstration<br>
+<p><strong><span style="color: #800080;"><a href="https://drive.google.com/file/d/1zbz1eyTPLdxNN6_TYqNOWHSlxmRRlug7/view?usp=drive_link">Video demonstration</a><br>
 </span></strong><span style="color: #800080;">(Less than 2 minutes)</span></p>
 
 <!-- {{</* youtube w7Ft2ymGmfc */>}} -->
@@ -48,7 +48,7 @@ date: 2024-03-31
 
 <h4>2B. Understand the main parts of a Callysto notebook</h4>
 <p>Callysto learning modules are based on “Jupyter notebooks” – an open-source platform that lets you create and share content (including functions, text, and media) using code. You don’t need to know how to code in order to use a notebook – this section explains what the main parts of a Callysto learning module are, so you understand what you’re looking at.</p>
-<p><span style="color: #800080;"><strong>Video demonstration</strong></span><br>
+<p><span style="color: #800080;"><a href="https://drive.google.com/file/d/19RQeflPO6IMd5Lh7bLrrPK_eOge2XmPb/view?usp=drive_link">Video demonstration</a><strong></strong></span><br>
 <span style="color: #800080;">(It’s approximately 6 minutes long.)</span></p>
 <!-- <video src="parts-of-a-callysto-notebook.mp4" controls></video> -->
 
@@ -66,7 +66,7 @@ date: 2024-03-31
 {{< /spoiler >}}
 
 {{< spoiler text="Watch a walk-through of a learning module" >}}
-<p>This walk-through looks at our learning module about climate-based open data, such as global temperatures. The module is a way for students to explore:</p>
+<p>This <a href="https://drive.google.com/file/d/1-Jp4asQ5C7709vkHZgXTBAeNEy_D1bY5/view?usp=drive_link">walk-through video demonstration</a> looks at our learning module about climate-based open data, such as global temperatures. The module is a way for students to explore:</p>
 <ul>
 <li>How to analyze graphs based on open data</li>
 <li>How to interpret the results they see from the data.</li>
@@ -135,7 +135,7 @@ date: 2024-03-31
 {{< spoiler text="Get students to send a module to you" >}}
 <p>The simplest way for students to send you their completed modules is to download it in Jupyter notebook file format (.ipynb). From there, they can email or upload it to a storage area of your choosing.</p>
 
-<p><strong><span style="color: #800080;">Video overview</span></strong></p>
+<p><strong><span style="color: #800080;"><a href="https://drive.google.com/file/d/16424Y9c3aiNzatihHDQFAztPDLKgROcP/view?usp=drive_link">Video demonstration</a></span></strong></p>
 
 <!-- <video src="How-students-download-notebooks.mp4" controls></video> -->
 
@@ -153,7 +153,7 @@ date: 2024-03-31
 
 {{< spoiler text="Upload the Callysto notebooks you receive" >}}
 <p>When students send you their Callysto notebooks (i.e. as .ipynb files) here’s how you can upload to your Callysto Hub.</p>
-<p><span style="color: #800080;"><strong>Video overview<br>
+<p><span style="color: #800080;"><strong><a href="https://drive.google.com/file/d/1j0j32ibVc-lk-QMDLPkzF_tQDKOaC3ul/view?usp=drive_link">Video demonstration</a><br>
 </strong>(It's just over 2 minutes.)</span></p>
 
 <!-- <video src="How-teachers-upload-student-notebooks.mp4" controls></video> -->
