@@ -2,7 +2,7 @@
 title: 'Using Callysto: Teacher Starter Kit'
 date: 2024-03-31
 ---
-<!--  Videos are here: https://drive.google.com/drive/folders/1b26yufAFwGjFycY4wFGgRS4NJBoZ_pl9 -->
+<!--  Videos are here: https://drive.google.com/drive/folders/1eRi2sVPiwMIrR35rff65UfJtD_lVZ3Yz?usp=drive_link -->
 
 <p>The purpose of this starter kit is to get you comfortable with using Callysto’s free, online curriculum-tied modules in your classroom.</p>
 <h4>What do you and your students need to use Callysto?</h4>
@@ -15,7 +15,7 @@ date: 2024-03-31
 <h2>Get Familiar with Callysto</h2>
 
 {{< spoiler text="Log into the Callysto Hub" >}}
-<p>The “Hub” is your free, online workspace for the Callysto learning modules you use. <a href="CallystoPrivacyNotice-July2019.pdf">We don’t store any personal information</a>.</p>
+<p>The “Hub” is your free, online workspace for the Callysto learning modules you use. <a href="https://callysto.ca/privacy/">We don’t store any personal information</a>.</p>
 
 <p><strong><span style="color: #800080;">Video demonstration<br>
 </span></strong><span style="color: #800080;">(Less than 2 minutes)</span></p>
