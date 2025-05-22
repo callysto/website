@@ -12,4 +12,4 @@ date: 2024-03-26
 <b>Requirements</b>
 <p>This is an introductory course recommended for Grade 5-12 educators with no prerequisites except a curiosity to learn.</p>
 
-<h3 style="color:#6F4A9E"><a href="https://courses.callysto.ca/courses/course-v1:Callysto+CCT101+2022-2023/about" target="_blank"> Link: Computational thinking course</a></h3>
+<h3 style="color:#6F4A9E"><a href="https://callysto.github.io/callysto-and-computational-thinking/intro.html" target="_blank"> Link: Computational thinking course</a></h3>

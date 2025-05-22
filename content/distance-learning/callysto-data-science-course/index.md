@@ -15,4 +15,4 @@ date: 2024-03-26
 <li>How to incorporate a data science exercise into your classroom.</li>
 </ul>
 
-<h3><a href="https://courses.callysto.ca/courses/course-v1:Callysto+DS101+2022_2023/about" target="_blank"> Access Callysto data science course</a></h3>
+<h3><a href="https://callysto.github.io/callysto-and-data-science/intro.html" target="_blank"> Access Callysto data science course</a></h3>
