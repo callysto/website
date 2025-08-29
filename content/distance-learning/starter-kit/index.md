@@ -9,7 +9,7 @@ date: 2024-03-31
 <ul>
 <li>A computer</li>
 <li>A secure internet connection</li>
-<li>An internet browser (Google Chrome or FireFox are ideal)</li>
+<li>An internet browser (Google Chrome or Firefox recommended)</li>
 </ul>
 
 <h2>Get Familiar with Callysto</h2>
