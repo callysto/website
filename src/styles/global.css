@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color palette — Deep Space */
+  --color-space-950: #080c1a;
+  --color-space-900: #0f1535;
+  --color-space-800: #1a2050;
+  --color-callisto: #4f8ef7;
+  --color-callisto-light: #7aaff9;
+  --color-nebula: #7c4dff;
+  --color-stellar: #f5c842;
+  --color-cloud: #e8eaf6;
+  --color-dust: #8892a4;
+  --color-aurora: #00c896;
+
+  /* Typography */
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-family-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-space-950);
+  color: var(--color-cloud);
+  font-family: var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-family-mono);
+}

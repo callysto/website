@@ -1,0 +1,383 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Callysto — Bring data science into your classroom">
+
+  <!-- Nav -->
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(8,12,26,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(79,142,247,0.12);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; height: 64px; display: flex; align-items: center; justify-content: space-between;">
+      <a href="/" style="font-family: var(--font-family-display); font-weight: 700; font-size: 1.25rem; color: var(--color-cloud); text-decoration: none; letter-spacing: -0.02em;">
+        Callysto
+      </a>
+      <nav style="display: flex; gap: 2rem; align-items: center;">
+        <a href="#resources" style="color: var(--color-dust); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;" onmouseover="this.style.color='var(--color-cloud)'" onmouseout="this.style.color='var(--color-dust)'">Resources</a>
+        <a href="#about" style="color: var(--color-dust); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;" onmouseover="this.style.color='var(--color-cloud)'" onmouseout="this.style.color='var(--color-dust)'">About</a>
+        <a href="#contact" style="color: var(--color-dust); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;" onmouseover="this.style.color='var(--color-cloud)'" onmouseout="this.style.color='var(--color-dust)'">Contact</a>
+        <a href="#resources" style="background: var(--color-callisto); color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 600; padding: 0.5rem 1.25rem; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='var(--color-callisto-light)'" onmouseout="this.style.background='var(--color-callisto)'">
+          Explore resources
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(79,142,247,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(124,77,255,0.08) 0%, transparent 50%),
+                var(--color-space-950);
+  ">
+    <!-- Starfield -->
+    <div aria-hidden="true" style="
+      position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 5%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 50% 15%, rgba(255,255,255,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 8%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 25%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 35%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 70%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 35% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 75%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 85%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 95% 70%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(2px 2px at 25% 90%, rgba(79,142,247,0.6) 0%, transparent 100%),
+        radial-gradient(2px 2px at 65% 92%, rgba(124,77,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 95%, rgba(255,255,255,0.4) 0%, transparent 100%);
+    "></div>
+
+    <!-- Orbital ring decoration -->
+    <div aria-hidden="true" style="
+      position: absolute; right: -10%; top: 50%; transform: translateY(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(79,142,247,0.08);
+      pointer-events: none;
+    "></div>
+    <div aria-hidden="true" style="
+      position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
+      width: 440px; height: 440px;
+      border-radius: 50%;
+      border: 1px solid rgba(124,77,255,0.1);
+      pointer-events: none;
+    "></div>
+
+    <div style="max-width: 1200px; margin: 0 auto; padding: 8rem 1.5rem 4rem; position: relative; z-index: 1;">
+      <div style="max-width: 720px;">
+
+        <!-- Eyebrow label -->
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.2); border-radius: 100px; padding: 0.375rem 1rem; margin-bottom: 2rem;">
+          <span style="width: 6px; height: 6px; background: var(--color-callisto); border-radius: 50%; display: inline-block;"></span>
+          <span style="font-size: 0.8rem; color: var(--color-callisto); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;">Free for Canadian K–12</span>
+        </div>
+
+        <h1 style="
+          font-family: var(--font-family-display);
+          font-size: clamp(2.5rem, 6vw, 4.5rem);
+          font-weight: 700;
+          line-height: 1.1;
+          letter-spacing: -0.03em;
+          color: var(--color-cloud);
+          margin: 0 0 1.5rem;
+        ">
+          Bring data science<br />
+          <span style="background: linear-gradient(135deg, var(--color-callisto), var(--color-nebula)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">into your classroom</span>
+        </h1>
+
+        <p style="font-size: clamp(1rem, 2vw, 1.25rem); color: var(--color-dust); line-height: 1.7; margin: 0 0 2.5rem; max-width: 560px;">
+          200+ free, interactive learning resources for Grades 5–12.
+          No account needed — open in any modern browser and start exploring data science today.
+        </p>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <a href="#resources" style="
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--color-callisto);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+          ">
+            Explore resources
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="https://jupyter.callysto.ca" target="_blank" rel="noopener" style="
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--color-cloud);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+          ">
+            ▶ Try in browser
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact stats -->
+  <section style="
+    background: var(--color-space-900);
+    border-top: 1px solid rgba(79,142,247,0.08);
+    border-bottom: 1px solid rgba(79,142,247,0.08);
+    padding: 4rem 1.5rem;
+  ">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center;">
+        {[
+          { value: '160K+', label: 'Students trained', color: 'var(--color-callisto)' },
+          { value: '6K+',   label: 'Teachers trained', color: 'var(--color-nebula)' },
+          { value: '200+',  label: 'Free resources',   color: 'var(--color-aurora)' },
+          { value: '2017',  label: 'Serving Canada since', color: 'var(--color-stellar)' },
+        ].map(stat => (
+          <div>
+            <div style={`font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: ${stat.color}; line-height: 1;`}>
+              {stat.value}
+            </div>
+            <div style="color: var(--color-dust); font-size: 0.9rem; margin-top: 0.5rem; font-weight: 500;">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" style="padding: 6rem 1.5rem; max-width: 1200px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;">
+      <div>
+        <p style="font-size: 0.8rem; color: var(--color-callisto); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Our mission</p>
+        <h2 style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1.5rem;">
+          Data literacy for every Canadian student
+        </h2>
+        <p style="color: var(--color-dust); line-height: 1.8; margin-bottom: 1.25rem;">
+          Callysto is a free, online learning tool that helps Grades 5–12 students and teachers develop in-demand data science skills — from data analysis and visualization to coding and computational thinking.
+        </p>
+        <p style="color: var(--color-dust); line-height: 1.8;">
+          Our interactive learning modules span every subject area and are aligned with existing curricula across Canada, so teachers can integrate them without rebuilding their lesson plans from scratch.
+        </p>
+        <div style="margin-top: 2rem; padding: 1.25rem 1.5rem; background: rgba(79,142,247,0.06); border-left: 3px solid var(--color-callisto); border-radius: 0 8px 8px 0;">
+          <p style="color: var(--color-cloud); font-size: 0.9rem; line-height: 1.7; margin: 0; font-style: italic;">
+            The name Callysto reflects our deep connection to open science: <strong style="color: var(--color-callisto);">Callisto</strong> is a moon of Jupiter, and we spell it with a "y" as a nod to <strong style="color: var(--color-nebula);">Jupyter</strong> and <strong style="color: var(--color-aurora);">Python</strong> — the open-source tools at the heart of every one of our notebooks.
+          </p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        {[
+          { icon: '🔬', label: 'Science', desc: 'Climate, biology, physics' },
+          { icon: '📐', label: 'Mathematics', desc: 'Statistics, data, probability' },
+          { icon: '🌎', label: 'Social Studies', desc: 'Geography, history, policy' },
+          { icon: '💻', label: 'Technology', desc: 'Python, AI, computer science' },
+          { icon: '📖', label: 'English', desc: 'Text analysis, Shakespeare' },
+          { icon: '🤖', label: 'Artificial Intelligence', desc: 'Generative AI, ethics' },
+        ].map(subject => (
+          <div style="background: var(--color-space-900); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 1.25rem;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">{subject.icon}</div>
+            <div style="font-family: var(--font-family-display); font-weight: 600; font-size: 0.9rem; color: var(--color-cloud); margin-bottom: 0.25rem;">{subject.label}</div>
+            <div style="font-size: 0.8rem; color: var(--color-dust);">{subject.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources -->
+  <section id="resources" style="padding: 6rem 1.5rem; background: var(--color-space-900);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <p style="font-size: 0.8rem; color: var(--color-callisto); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; text-align: center;">What's available</p>
+      <h2 style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; text-align: center; margin: 0 0 1rem;">
+        Everything runs in your browser
+      </h2>
+      <p style="color: var(--color-dust); text-align: center; max-width: 560px; margin: 0 auto 4rem; line-height: 1.7;">
+        Powered by JupyterLite — no account, no installation, no login required. Click and go.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        {[
+          {
+            title: 'Learning Modules',
+            desc: '100+ curriculum-aligned notebooks across 7 subject areas, Grades 5–12.',
+            badge: '100+ notebooks',
+            color: 'var(--color-callisto)',
+            href: '#',
+          },
+          {
+            title: 'Data Viz of the Week',
+            desc: '45 stand-alone data visualizations exploring real-world datasets — climate, sports, culture, and more.',
+            badge: '45 visualizations',
+            color: 'var(--color-nebula)',
+            href: '#',
+          },
+          {
+            title: 'AI & Data Science Course',
+            desc: 'A 12-lesson structured course from data basics to generative AI and AI ethics.',
+            badge: '12 lessons',
+            color: 'var(--color-aurora)',
+            href: '#',
+          },
+          {
+            title: 'Hackathon Challenges',
+            desc: 'Intro + challenge notebook pairs on Pokémon, music, basketball, and more. A proven student favourite.',
+            badge: '10 themes',
+            color: 'var(--color-stellar)',
+            href: '#',
+          },
+          {
+            title: 'Interesting Problems',
+            desc: '46 self-contained mathematical and data puzzles. Great for enrichment and independent exploration.',
+            badge: '46 notebooks',
+            color: 'var(--color-callisto-light)',
+            href: '#',
+          },
+          {
+            title: 'Lesson Plans',
+            desc: 'Structured plans with teacher and student notebooks for guided Python problem-solving activities.',
+            badge: '23 plans',
+            color: 'var(--color-nebula)',
+            href: '#',
+          },
+        ].map(card => (
+          <a href={card.href} style="
+            display: flex; flex-direction: column;
+            background: var(--color-space-800);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 1.75rem;
+            text-decoration: none;
+            transition: border-color 0.2s;
+          ">
+            <div style={`display: inline-block; font-size: 0.75rem; font-weight: 600; color: ${card.color}; background: color-mix(in srgb, ${card.color} 12%, transparent); border-radius: 100px; padding: 0.25rem 0.75rem; margin-bottom: 1rem; width: fit-content;`}>
+              {card.badge}
+            </div>
+            <h3 style="font-family: var(--font-family-display); font-size: 1.1rem; font-weight: 600; color: var(--color-cloud); margin: 0 0 0.75rem; line-height: 1.3;">
+              {card.title}
+            </h3>
+            <p style="font-size: 0.875rem; color: var(--color-dust); line-height: 1.7; margin: 0 0 1.5rem; flex: 1;">
+              {card.desc}
+            </p>
+            <div style={`font-size: 0.875rem; font-weight: 600; color: ${card.color}; display: flex; align-items: center; gap: 0.375rem;`}>
+              ▶ Try in browser
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AI section -->
+  <section style="padding: 6rem 1.5rem; max-width: 1200px; margin: 0 auto;">
+    <div style="
+      background: linear-gradient(135deg, rgba(124,77,255,0.08) 0%, rgba(79,142,247,0.08) 100%);
+      border: 1px solid rgba(124,77,255,0.2);
+      border-radius: 16px;
+      padding: 4rem;
+      position: relative;
+      overflow: hidden;
+    ">
+      <div aria-hidden="true" style="
+        position: absolute; right: -60px; top: -60px;
+        width: 300px; height: 300px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(124,77,255,0.12) 0%, transparent 70%);
+        pointer-events: none;
+      "></div>
+      <div style="max-width: 640px; position: relative;">
+        <p style="font-size: 0.8rem; color: var(--color-nebula); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Where we're going</p>
+        <h2 style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1.25rem;">
+          Preparing students for an AI-enabled world
+        </h2>
+        <p style="color: var(--color-dust); line-height: 1.8; margin-bottom: 1.25rem;">
+          Callysto's AI and Data Science course covers the full landscape — from working with data to building and training machine learning models. Critically, it includes dedicated lessons on <strong style="color: var(--color-cloud);">generative AI</strong> and <strong style="color: var(--color-cloud);">AI ethics</strong>, helping students think clearly about how these tools work and what they mean for society.
+        </p>
+        <p style="color: var(--color-dust); line-height: 1.8; margin-bottom: 2rem;">
+          Because understanding AI isn't just a technical skill — it's a citizenship skill.
+        </p>
+        <a href="#" style="
+          display: inline-flex; align-items: center; gap: 0.5rem;
+          background: var(--color-nebula);
+          color: #fff;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.95rem;
+          padding: 0.75rem 1.75rem;
+          border-radius: 8px;
+        ">
+          Explore the AI course
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section style="padding: 5rem 1.5rem; background: var(--color-space-900);">
+    <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+      <div style="font-size: 3rem; color: var(--color-callisto); opacity: 0.4; line-height: 1; margin-bottom: 1.5rem;">"</div>
+      <blockquote style="font-family: var(--font-family-display); font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 500; line-height: 1.7; color: var(--color-cloud); margin: 0 0 2rem; font-style: italic;">
+        Students who I thought wouldn't like coding or doing a computer-type skill are saying, 'this is pretty cool.' And at the end of the day I always want them to work on teamwork, communication, problem solving, and conceptual learning that goes beyond just the textbook.
+      </blockquote>
+      <cite style="font-style: normal; color: var(--color-dust); font-size: 0.9rem; font-weight: 500;">
+        — Jenn O'Neill, Teacher
+      </cite>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="padding: 6rem 1.5rem; max-width: 1200px; margin: 0 auto; text-align: center;">
+    <h2 style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; letter-spacing: -0.02em; margin: 0 0 1rem;">
+      Have questions?
+    </h2>
+    <p style="color: var(--color-dust); margin: 0 0 2rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7;">
+      We're here to help. Email us if you have questions about using Callysto in your classroom.
+    </p>
+    <a href="mailto:contact@callysto.ca" style="
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1px solid rgba(79,142,247,0.3);
+      color: var(--color-callisto);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+    ">
+      contact@callysto.ca
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer style="
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: var(--color-dust);
+    font-size: 0.85rem;
+  ">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 1rem;">
+      <span>© {new Date().getFullYear()} Callysto</span>
+      <div style="display: flex; gap: 2rem;">
+        <a href="/privacy" style="color: var(--color-dust); text-decoration: none;">Privacy</a>
+        <a href="/terms" style="color: var(--color-dust); text-decoration: none;">Terms</a>
+        <a href="https://twitter.com/callysto_canada" target="_blank" rel="noopener" style="color: var(--color-dust); text-decoration: none;">@callysto_canada</a>
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>

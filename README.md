@@ -1,32 +1,77 @@
-# [Callysto Landing Page](https://callysto.ca)
+# Callysto Website
 
-[![Screenshot](./.github/preview.webp)](https://hugoblox.com/templates/)
+The official website for [Callysto](https://callysto.ca) — free data science resources for Canadian K–12 teachers and students.
 
-The Hugo **Landing Page Template** empowers you to easily create startup websites, marketing websites, and landing pages to accelerate your business growth.
+Built with [Astro](https://astro.build) and [Tailwind CSS v4](https://tailwindcss.com), deployed to GitHub Pages via GitHub Actions.
 
-️**Trusted by 250,000+ creators, teams, and organizations.** Highly customizable via the integrated **no-code, block-based website builder**, making every site truly personalized ⭐⭐⭐⭐⭐
+---
 
-[![Get Started](https://img.shields.io/badge/-Get%20started-ff4655?style=for-the-badge)](https://hugoblox.com/templates/)
-[![Discord](https://img.shields.io/discord/722225264733716590?style=for-the-badge)](https://discord.com/channels/722225264733716590/742892432458252370/742895548159492138)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/GetResearchDev?label=Follow%20on%20Twitter)](https://twitter.com/GetResearchDev)
+## Local development
 
-[Check out the latest demo](https://theme-landing-page.netlify.app) of what you'll get in less than 10 minutes, or [view the showcase](https://hugoblox.com/creators/).
+### Prerequisites
 
-The integrated [**Hugo Blox**](https://hugoblox.com) website builder and CMS makes it easy to create a beautiful website for free. Edit your site in the CMS (or your favorite editor), generate it with [Hugo](https://github.com/gohugoio/hugo), and deploy with GitHub or Netlify. Customize anything on your site with widgets, light/dark themes, and language packs.
+- [Node.js](https://nodejs.org) v18 or later (`brew install node` on macOS)
 
-- 👉 [**Get Started**](https://hugoblox.com/templates/)
-- 📚 [View the **documentation**](https://docs.hugoblox.com/)
-- 💬 [Chat with the **Hugo Blox Builder community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- ⬇️ **Automatically import citations from BibTeX** with the [Hugo Academic CLI](https://github.com/GetRD/academic-file-converter)
-- 🐦 Share your new site with the community: [@GetResearchDev](https://twitter.com/GetResearchDev) [@GeorgeCushen](https://twitter.com/GeorgeCushen) [#MadeWithHugoBlox](https://twitter.com/search?q=%23MadeWithHugoBlox&src=typed_query)
-- 🗳 [Take the survey and help us improve #OpenSource](https://forms.gle/NioD9VhUg7PNmdCAA)
-- 🚀 [Contribute improvements](https://github.com/HugoBlox/hugo-blox-builder/blob/main/CONTRIBUTING.md) or [suggest improvements](https://github.com/HugoBlox/hugo-blox-builder/issues)
-- ⬆️ **Updating?** View the [Update Guide](https://docs.hugoblox.com/) and [Release Notes](https://github.com/HugoBlox/hugo-blox-builder/releases)
+### Setup
 
-## We ask you, humbly, to support this open source movement
+```bash
+# Install dependencies (first time only)
+npm install
 
-Today we ask you to defend the open source independence of the Hugo Blox Builder and themes 🐧
+# Start the local dev server with live reload
+npm run dev
+```
 
-We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
+The site is available at **http://localhost:4321**. Changes to any file in `src/` reload the browser automatically.
 
-### [❤️ Click here to become a GitHub Sponsor, unlocking awesome perks such as _exclusive academic templates and widgets_](https://github.com/sponsors/gcushen)
+### Other commands
+
+```bash
+npm run build    # Build for production → outputs to dist/
+npm run preview  # Preview the production build locally
+```
+
+---
+
+## Deployment
+
+Pushes to the `main` branch automatically trigger a GitHub Actions build and deploy to GitHub Pages. No manual steps required.
+
+The workflow is defined in [.github/workflows/publish.yaml](.github/workflows/publish.yaml).
+
+---
+
+## Branch strategy
+
+| Branch | Purpose |
+|---|---|
+| `main` | Live site at callysto.ca |
+| `astro-redesign` | New Astro redesign in progress |
+
+The `astro-redesign` branch is merged into `main` when the redesign is ready to go live.
+
+---
+
+## Project structure
+
+```
+src/
+  layouts/       ← Base HTML shell (BaseLayout.astro)
+  pages/         ← One .astro file per route
+  styles/        ← Global CSS (Tailwind v4 + design tokens)
+content/         ← Markdown content (being migrated to Astro content collections)
+assets/media/    ← Images and logos
+public/          ← Static files served as-is
+```
+
+---
+
+## Analytics
+
+The site uses [GoatCounter](https://www.goatcounter.com/) for privacy-first, cookie-free analytics. The tracking script is in `src/layouts/BaseLayout.astro` (commented out until the GoatCounter account is set up).
+
+---
+
+## Contact
+
+Questions? Email [contact@callysto.ca](mailto:contact@callysto.ca) or find us at [@callysto_canada](https://twitter.com/callysto_canada).
