@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { resources, typeConfig, subjectConfig } from '../data/resources.js';
+
+const typeFilters = [
+  { key: 'all', label: 'All' },
+  { key: 'learning-module', label: 'Learning Modules' },
+  { key: 'data-viz', label: 'Data Viz' },
+  { key: 'ai-course', label: 'AI Course' },
+  { key: 'hackathon', label: 'Hackathon' },
+  { key: 'lesson-plan', label: 'Lesson Plans' },
+  { key: 'interesting-problem', label: 'Interesting Problems' },
+  { key: 'data-lab', label: 'Data Labs' },
+];
+
+const subjectFilters = [
+  { key: 'all', label: 'All subjects' },
+  { key: 'math', label: 'Math' },
+  { key: 'science', label: 'Science' },
+  { key: 'english', label: 'English' },
+  { key: 'social-studies', label: 'Social Studies' },
+  { key: 'technology', label: 'Technology' },
+  { key: 'indigenous', label: 'Indigenous' },
+  { key: 'health', label: 'Health' },
+  { key: 'ai', label: 'AI & Data Science' },
+];
+
+const total = resources.length;
+---
+
+<BaseLayout title="Resources — Callysto" description="Browse 100+ free interactive data science resources for Canadian K–12 students and teachers. Filter by subject, type, or search by topic.">
+
+  <!-- Nav -->
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(8,12,26,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(79,142,247,0.12);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; height: 64px; display: flex; align-items: center; justify-content: space-between;">
+      <a href="/" style="font-family: var(--font-family-display); font-weight: 700; font-size: 1.25rem; color: var(--color-cloud); text-decoration: none; letter-spacing: -0.02em;">Callysto</a>
+      <nav style="display: flex; gap: 2rem; align-items: center;">
+        <a href="/#about" style="color: var(--color-dust); text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='var(--color-cloud)'" onmouseout="this.style.color='var(--color-dust)'">About</a>
+        <a href="/#contact" style="color: var(--color-dust); text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='var(--color-cloud)'" onmouseout="this.style.color='var(--color-dust)'">Contact</a>
+        <a href="https://callysto.github.io/jupyterlite/" target="_blank" rel="noopener" style="background: var(--color-callisto); color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 600; padding: 0.5rem 1.25rem; border-radius: 6px;" onmouseover="this.style.background='var(--color-callisto-light)'" onmouseout="this.style.background='var(--color-callisto)'">Open JupyterLite</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page hero -->
+  <section style="padding: 7rem 1.5rem 3rem; max-width: 1200px; margin: 0 auto;">
+    <p style="font-size: 0.8rem; color: var(--color-callisto); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Free for Canadian K–12</p>
+    <h1 style="font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.02em; margin: 0 0 1rem; line-height: 1.15;">
+      Explore {total}+ free resources
+    </h1>
+    <p style="color: var(--color-dust); font-size: 1.05rem; max-width: 560px; line-height: 1.7; margin: 0;">
+      Every resource opens instantly in your browser — no account, no installation. Filter by type or subject, or search for a topic.
+    </p>
+  </section>
+
+  <!-- Sticky filter bar -->
+  <div id="filter-bar" style="position: sticky; top: 64px; z-index: 40; background: rgba(8,12,26,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 1rem 1.5rem;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem;">
+
+      <!-- Search -->
+      <div style="position: relative; max-width: 480px;">
+        <svg style="position: absolute; left: 0.875rem; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--color-dust);" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10 10l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search resources..."
+          style="width: 100%; background: var(--color-space-800); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 0.625rem 1rem 0.625rem 2.5rem; color: var(--color-cloud); font-size: 0.9rem; outline: none; font-family: var(--font-family-sans);"
+        />
+      </div>
+
+      <!-- Type filters -->
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+        <span style="font-size: 0.75rem; color: var(--color-dust); font-weight: 500; margin-right: 0.25rem; white-space: nowrap;">Type:</span>
+        {typeFilters.map(f => (
+          <button
+            class="type-filter"
+            data-filter={f.key}
+            style={`background: ${f.key === 'all' ? 'var(--color-callisto)' : 'var(--color-space-800)'}; color: ${f.key === 'all' ? '#fff' : 'var(--color-dust)'}; border: 1px solid ${f.key === 'all' ? 'transparent' : 'rgba(255,255,255,0.08)'}; border-radius: 100px; padding: 0.3rem 0.875rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: var(--font-family-sans); white-space: nowrap;`}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Subject filters -->
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+        <span style="font-size: 0.75rem; color: var(--color-dust); font-weight: 500; margin-right: 0.25rem; white-space: nowrap;">Subject:</span>
+        {subjectFilters.map(f => (
+          <button
+            class="subject-filter"
+            data-filter={f.key}
+            style={`background: ${f.key === 'all' ? 'var(--color-space-900)' : 'var(--color-space-800)'}; color: ${f.key === 'all' ? 'var(--color-cloud)' : 'var(--color-dust)'}; border: 1px solid ${f.key === 'all' ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.08)'}; border-radius: 100px; padding: 0.3rem 0.875rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: var(--font-family-sans); white-space: nowrap;`}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Results count -->
+      <p id="result-count" style="font-size: 0.8rem; color: var(--color-dust); margin: 0;">Showing {total} resources</p>
+    </div>
+  </div>
+
+  <!-- Resource grid -->
+  <main style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 6rem;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem;">
+      {resources.map(r => {
+        const tc = typeConfig[r.type] ?? { label: r.type, color: 'var(--color-dust)' };
+        return (
+          <a
+            href={r.href}
+            target="_blank"
+            rel="noopener"
+            data-resource
+            data-type={r.type}
+            data-subjects={r.subjects.join(' ')}
+            data-text={`${r.title} ${r.desc}`.toLowerCase()}
+            style="display: flex; flex-direction: column; background: var(--color-space-800); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem; text-decoration: none; transition: border-color 0.15s;"
+            onmouseover="this.style.borderColor='rgba(79,142,247,0.3)'"
+            onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'"
+          >
+            <div style={`display: inline-block; font-size: 0.7rem; font-weight: 700; color: ${tc.color}; background: color-mix(in srgb, ${tc.color} 12%, transparent); border-radius: 100px; padding: 0.2rem 0.65rem; margin-bottom: 0.875rem; width: fit-content; letter-spacing: 0.04em; text-transform: uppercase;`}>
+              {tc.label}
+            </div>
+            <h3 style="font-family: var(--font-family-display); font-size: 1rem; font-weight: 600; color: var(--color-cloud); margin: 0 0 0.5rem; line-height: 1.3;">
+              {r.title}
+            </h3>
+            <p style="font-size: 0.825rem; color: var(--color-dust); line-height: 1.65; margin: 0 0 1.25rem; flex: 1;">
+              {r.desc}
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem;">
+              {r.subjects.filter(s => s !== 'general').map(s => (
+                <span style="font-size: 0.7rem; color: var(--color-dust); background: rgba(255,255,255,0.05); border-radius: 4px; padding: 0.15rem 0.5rem;">
+                  {subjectConfig[s] ?? s}
+                </span>
+              ))}
+            </div>
+            <div style={`font-size: 0.8rem; font-weight: 600; color: ${tc.color};`}>
+              Open in JupyterLite →
+            </div>
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- Empty state -->
+    <div id="empty-state" hidden style="text-align: center; padding: 4rem 1.5rem; color: var(--color-dust);">
+      <p style="font-size: 1.25rem; margin-bottom: 0.5rem;">No resources match your filters.</p>
+      <p style="font-size: 0.9rem;">Try a different search term or clear a filter.</p>
+    </div>
+  </main>
+
+</BaseLayout>
+
+<script>
+  const state = { type: 'all', subject: 'all', search: '' };
+
+  function update() {
+    const cards = document.querySelectorAll('[data-resource]');
+    const empty = document.getElementById('empty-state');
+    let visible = 0;
+
+    cards.forEach(card => {
+      const typeMatch = state.type === 'all' || card.dataset.type === state.type;
+      const subjectMatch = state.subject === 'all' || card.dataset.subjects.split(' ').includes(state.subject);
+      const searchMatch = !state.search || card.dataset.text.includes(state.search);
+      const show = typeMatch && subjectMatch && searchMatch;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+
+    document.getElementById('result-count').textContent =
+      `Showing ${visible} resource${visible !== 1 ? 's' : ''}`;
+    empty.hidden = visible > 0;
+  }
+
+  // Type filter buttons
+  document.querySelectorAll('.type-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.type = btn.dataset.filter;
+      document.querySelectorAll('.type-filter').forEach(b => {
+        const active = b.dataset.filter === state.type;
+        b.style.background = active ? 'var(--color-callisto)' : 'var(--color-space-800)';
+        b.style.color = active ? '#fff' : 'var(--color-dust)';
+        b.style.borderColor = active ? 'transparent' : 'rgba(255,255,255,0.08)';
+      });
+      update();
+    });
+  });
+
+  // Subject filter buttons
+  document.querySelectorAll('.subject-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.subject = btn.dataset.filter;
+      document.querySelectorAll('.subject-filter').forEach(b => {
+        const active = b.dataset.filter === state.subject;
+        b.style.background = active ? 'var(--color-space-900)' : 'var(--color-space-800)';
+        b.style.color = active ? 'var(--color-cloud)' : 'var(--color-dust)';
+        b.style.borderColor = active ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.08)';
+      });
+      update();
+    });
+  });
+
+  // Search input
+  document.getElementById('search-input').addEventListener('input', e => {
+    state.search = e.target.value.toLowerCase().trim();
+    update();
+  });
+</script>

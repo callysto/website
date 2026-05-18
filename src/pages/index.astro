@@ -1,29 +1,50 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { resources, typeConfig, subjectConfig } from '../data/resources.js';
+
+const typeFilters = [
+  { key: 'all', label: 'All' },
+  { key: 'learning-module', label: 'Learning Modules' },
+  { key: 'data-viz', label: 'Data Viz' },
+  { key: 'ai-course', label: 'AI Course' },
+  { key: 'hackathon', label: 'Hackathon' },
+  { key: 'lesson-plan', label: 'Lesson Plans' },
+  { key: 'interesting-problem', label: 'Interesting Problems' },
+  { key: 'data-lab', label: 'Data Labs' },
+];
+
+const subjectFilters = [
+  { key: 'all', label: 'All subjects' },
+  { key: 'math', label: 'Math' },
+  { key: 'science', label: 'Science' },
+  { key: 'english', label: 'English' },
+  { key: 'social-studies', label: 'Social Studies' },
+  { key: 'technology', label: 'Technology' },
+  { key: 'indigenous', label: 'Indigenous' },
+  { key: 'health', label: 'Health' },
+  { key: 'ai', label: 'AI & Data Science' },
+];
+
+const total = resources.length;
 ---
 
 <BaseLayout title="Callysto — Bring data science into your classroom">
 
   <!-- Nav -->
-  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(8,12,26,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(79,142,247,0.12);">
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(8,12,26,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(79,142,247,0.12);">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; height: 64px; display: flex; align-items: center; justify-content: space-between;">
-      <a href="/" style="font-family: var(--font-family-display); font-weight: 700; font-size: 1.25rem; color: var(--color-cloud); text-decoration: none; letter-spacing: -0.02em;">
-        Callysto
-      </a>
+      <a href="/" style="font-family: var(--font-family-display); font-weight: 700; font-size: 1.25rem; color: var(--color-cloud); text-decoration: none; letter-spacing: -0.02em;">Callysto</a>
       <nav style="display: flex; gap: 2rem; align-items: center;">
-        <a href="#resources" style="color: var(--color-dust); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;" onmouseover="this.style.color='var(--color-cloud)'" onmouseout="this.style.color='var(--color-dust)'">Resources</a>
-        <a href="#about" style="color: var(--color-dust); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;" onmouseover="this.style.color='var(--color-cloud)'" onmouseout="this.style.color='var(--color-dust)'">About</a>
-        <a href="#contact" style="color: var(--color-dust); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;" onmouseover="this.style.color='var(--color-cloud)'" onmouseout="this.style.color='var(--color-dust)'">Contact</a>
-        <a href="#resources" style="background: var(--color-callisto); color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 600; padding: 0.5rem 1.25rem; border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='var(--color-callisto-light)'" onmouseout="this.style.background='var(--color-callisto)'">
-          Explore resources
-        </a>
+        <a href="#about" style="color: var(--color-dust); text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='var(--color-cloud)'" onmouseout="this.style.color='var(--color-dust)'">About</a>
+        <a href="#contact" style="color: var(--color-dust); text-decoration: none; font-size: 0.9rem;" onmouseover="this.style.color='var(--color-cloud)'" onmouseout="this.style.color='var(--color-dust)'">Contact</a>
+        <a href="#resources" style="background: var(--color-callisto); color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 600; padding: 0.5rem 1.25rem; border-radius: 6px;" onmouseover="this.style.background='var(--color-callisto-light)'" onmouseout="this.style.background='var(--color-callisto)'">Explore resources</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" style="
-    min-height: 100vh;
+  <!-- Hero (compact) -->
+  <section style="
+    min-height: 65vh;
     display: flex;
     align-items: center;
     position: relative;
@@ -50,114 +71,169 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         radial-gradient(1.5px 1.5px at 35% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
         radial-gradient(1px 1px at 55% 75%, rgba(255,255,255,0.4) 0%, transparent 100%),
         radial-gradient(1px 1px at 80% 85%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(1px 1px at 95% 70%, rgba(255,255,255,0.6) 0%, transparent 100%),
         radial-gradient(2px 2px at 25% 90%, rgba(79,142,247,0.6) 0%, transparent 100%),
-        radial-gradient(2px 2px at 65% 92%, rgba(124,77,255,0.5) 0%, transparent 100%),
-        radial-gradient(1px 1px at 45% 95%, rgba(255,255,255,0.4) 0%, transparent 100%);
+        radial-gradient(2px 2px at 65% 92%, rgba(124,77,255,0.5) 0%, transparent 100%);
     "></div>
+    <!-- Orbital rings -->
+    <div aria-hidden="true" style="position: absolute; right: -10%; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; border-radius: 50%; border: 1px solid rgba(79,142,247,0.07); pointer-events: none;"></div>
+    <div aria-hidden="true" style="position: absolute; right: -4%; top: 50%; transform: translateY(-50%); width: 360px; height: 360px; border-radius: 50%; border: 1px solid rgba(124,77,255,0.09); pointer-events: none;"></div>
 
-    <!-- Orbital ring decoration -->
-    <div aria-hidden="true" style="
-      position: absolute; right: -10%; top: 50%; transform: translateY(-50%);
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      border: 1px solid rgba(79,142,247,0.08);
-      pointer-events: none;
-    "></div>
-    <div aria-hidden="true" style="
-      position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
-      width: 440px; height: 440px;
-      border-radius: 50%;
-      border: 1px solid rgba(124,77,255,0.1);
-      pointer-events: none;
-    "></div>
-
-    <div style="max-width: 1200px; margin: 0 auto; padding: 8rem 1.5rem 4rem; position: relative; z-index: 1;">
-      <div style="max-width: 720px;">
-
-        <!-- Eyebrow label -->
-        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.2); border-radius: 100px; padding: 0.375rem 1rem; margin-bottom: 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 6rem 1.5rem 3.5rem; position: relative; z-index: 1; width: 100%;">
+      <div style="max-width: 700px;">
+        <!-- Eyebrow -->
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.2); border-radius: 100px; padding: 0.375rem 1rem; margin-bottom: 1.75rem;">
           <span style="width: 6px; height: 6px; background: var(--color-callisto); border-radius: 50%; display: inline-block;"></span>
           <span style="font-size: 0.8rem; color: var(--color-callisto); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;">Free for Canadian K–12</span>
         </div>
 
-        <h1 style="
-          font-family: var(--font-family-display);
-          font-size: clamp(2.5rem, 6vw, 4.5rem);
-          font-weight: 700;
-          line-height: 1.1;
-          letter-spacing: -0.03em;
-          color: var(--color-cloud);
-          margin: 0 0 1.5rem;
-        ">
+        <h1 style="font-family: var(--font-family-display); font-size: clamp(2.5rem, 6vw, 4.25rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; color: var(--color-cloud); margin: 0 0 1.25rem;">
           Bring data science<br />
           <span style="background: linear-gradient(135deg, var(--color-callisto), var(--color-nebula)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">into your classroom</span>
         </h1>
 
-        <p style="font-size: clamp(1rem, 2vw, 1.25rem); color: var(--color-dust); line-height: 1.7; margin: 0 0 2.5rem; max-width: 560px;">
-          200+ free, interactive learning resources for Grades 5–12.
-          No account needed — open in any modern browser and start exploring data science today.
+        <p style="font-size: clamp(1rem, 2vw, 1.2rem); color: var(--color-dust); line-height: 1.7; margin: 0 0 2rem; max-width: 540px;">
+          {total}+ free, interactive learning resources for Grades 5–12.
+          No account needed — open in any modern browser and start exploring today.
         </p>
 
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-          <a href="#resources" style="
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: var(--color-callisto);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-          ">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 3rem;">
+          <a href="#resources" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-callisto); color: #fff; text-decoration: none; font-weight: 600; font-size: 1rem; padding: 0.875rem 2rem; border-radius: 8px;" onmouseover="this.style.background='var(--color-callisto-light)'" onmouseout="this.style.background='var(--color-callisto)'">
             Explore resources
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="https://jupyter.callysto.ca" target="_blank" rel="noopener" style="
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            border: 1px solid rgba(255,255,255,0.15);
-            color: var(--color-cloud);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-          ">
-            ▶ Try in browser
+          <a href="https://callysto.github.io/jupyterlite/lab?path=hackathon%2FPok%C3%A9mon%2Fpokemon-intro.ipynb" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(245,200,66,0.4); color: var(--color-stellar); text-decoration: none; font-weight: 500; font-size: 1rem; padding: 0.875rem 2rem; border-radius: 8px;" onmouseover="this.style.borderColor='rgba(245,200,66,0.8)'" onmouseout="this.style.borderColor='rgba(245,200,66,0.4)'">
+            ⚡ Try Pokémon challenge
           </a>
+        </div>
+
+        <!-- Impact stats inline -->
+        <div style="display: flex; flex-wrap: wrap; gap: 2.5rem;">
+          {[
+            { value: '160K+', label: 'Students trained',    color: 'var(--color-callisto)' },
+            { value: '6K+',   label: 'Teachers trained',    color: 'var(--color-nebula)' },
+            { value: '2017',  label: 'Serving Canada since', color: 'var(--color-stellar)' },
+          ].map(s => (
+            <div>
+              <div style={`font-family: var(--font-family-display); font-size: 1.75rem; font-weight: 700; color: ${s.color}; line-height: 1;`}>{s.value}</div>
+              <div style="color: var(--color-dust); font-size: 0.8rem; margin-top: 0.3rem;">{s.label}</div>
+            </div>
+          ))}
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Impact stats -->
-  <section style="
-    background: var(--color-space-900);
-    border-top: 1px solid rgba(79,142,247,0.08);
-    border-bottom: 1px solid rgba(79,142,247,0.08);
-    padding: 4rem 1.5rem;
-  ">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center;">
-        {[
-          { value: '160K+', label: 'Students trained', color: 'var(--color-callisto)' },
-          { value: '6K+',   label: 'Teachers trained', color: 'var(--color-nebula)' },
-          { value: '200+',  label: 'Free resources',   color: 'var(--color-aurora)' },
-          { value: '2017',  label: 'Serving Canada since', color: 'var(--color-stellar)' },
-        ].map(stat => (
-          <div>
-            <div style={`font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: ${stat.color}; line-height: 1;`}>
-              {stat.value}
-            </div>
-            <div style="color: var(--color-dust); font-size: 0.9rem; margin-top: 0.5rem; font-weight: 500;">
-              {stat.label}
-            </div>
+  <!-- Resources: search + filter + grid -->
+  <section id="resources" style="background: var(--color-space-900); padding: 4rem 0 6rem;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+
+      <p style="font-size: 0.8rem; color: var(--color-callisto); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; text-align: center;">What's available</p>
+      <h2 style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; text-align: center; margin: 0 0 0.75rem;">
+        Everything runs in your browser
+      </h2>
+      <p style="color: var(--color-dust); text-align: center; max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.7;">
+        Powered by JupyterLite — no account, no installation. Click any resource to open it now.
+      </p>
+
+      <!-- Featured Pokémon challenge -->
+      <div style="position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(245,200,66,0.08) 0%, rgba(124,77,255,0.08) 100%); border: 1px solid rgba(245,200,66,0.25); border-radius: 16px; padding: 2.5rem 2.5rem 2.5rem 2rem; margin-bottom: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+        <div aria-hidden="true" style="position: absolute; right: -40px; top: -40px; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, rgba(245,200,66,0.1) 0%, transparent 70%); pointer-events: none;"></div>
+        <div style="position: relative; z-index: 1; flex: 1; min-width: 260px;">
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(245,200,66,0.12); border: 1px solid rgba(245,200,66,0.3); border-radius: 100px; padding: 0.25rem 0.875rem; margin-bottom: 1rem;">
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-stellar); letter-spacing: 0.06em; text-transform: uppercase;">Featured Hackathon Challenge</span>
           </div>
-        ))}
+          <h3 style="font-family: var(--font-family-display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-cloud); margin: 0 0 0.75rem; letter-spacing: -0.02em;">
+            Gotta catch 'em all —<br /><span style="color: var(--color-stellar);">with data science</span>
+          </h3>
+          <p style="color: var(--color-dust); line-height: 1.7; margin: 0 0 1.5rem; max-width: 480px; font-size: 0.95rem;">
+            Explore the full Pokédex using Python and real game data. Students analyse stats, visualize type matchups, and build their own ranking models — a perennial student favourite that makes data science instantly click.
+          </p>
+          <a href="https://callysto.github.io/jupyterlite/lab?path=hackathon%2FPok%C3%A9mon%2Fpokemon-intro.ipynb" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-stellar); color: var(--color-space-950); text-decoration: none; font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.5rem; border-radius: 8px;">
+            ▶ Try the Pokémon challenge
+          </a>
+        </div>
+        <div aria-hidden="true" style="font-size: clamp(5rem, 10vw, 8rem); line-height: 1; user-select: none; position: relative; z-index: 1;">⚡</div>
       </div>
+
+      <!-- Search + filter bar -->
+      <div style="background: var(--color-space-800); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.875rem;">
+
+        <!-- Search input -->
+        <div style="position: relative; max-width: 480px;">
+          <svg style="position: absolute; left: 0.875rem; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--color-dust);" width="15" height="15" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10 10l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <input id="search-input" type="search" placeholder="Search resources by topic, subject, or keyword…"
+            style="width: 100%; background: var(--color-space-900); border: 1px solid rgba(255,255,255,0.09); border-radius: 8px; padding: 0.625rem 1rem 0.625rem 2.4rem; color: var(--color-cloud); font-size: 0.875rem; outline: none; font-family: var(--font-family-sans);" />
+        </div>
+
+        <!-- Type filters -->
+        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;">
+          <span style="font-size: 0.72rem; color: var(--color-dust); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-right: 0.25rem; white-space: nowrap;">Type:</span>
+          {typeFilters.map(f => (
+            <button class="type-filter" data-filter={f.key}
+              style={`background: ${f.key === 'all' ? 'var(--color-callisto)' : 'rgba(255,255,255,0.05)'}; color: ${f.key === 'all' ? '#fff' : 'var(--color-dust)'}; border: 1px solid ${f.key === 'all' ? 'transparent' : 'rgba(255,255,255,0.08)'}; border-radius: 100px; padding: 0.275rem 0.8rem; font-size: 0.78rem; font-weight: 500; cursor: pointer; font-family: var(--font-family-sans); white-space: nowrap;`}>
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        <!-- Subject filters -->
+        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;">
+          <span style="font-size: 0.72rem; color: var(--color-dust); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-right: 0.25rem; white-space: nowrap;">Subject:</span>
+          {subjectFilters.map(f => (
+            <button class="subject-filter" data-filter={f.key}
+              style={`background: ${f.key === 'all' ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.05)'}; color: ${f.key === 'all' ? 'var(--color-cloud)' : 'var(--color-dust)'}; border: 1px solid ${f.key === 'all' ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.07)'}; border-radius: 100px; padding: 0.275rem 0.8rem; font-size: 0.78rem; font-weight: 500; cursor: pointer; font-family: var(--font-family-sans); white-space: nowrap;`}>
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        <p id="result-count" style="font-size: 0.78rem; color: var(--color-dust); margin: 0;">Showing {total} resources</p>
+      </div>
+
+      <!-- Resource grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.25rem;">
+        {resources.map(r => {
+          const tc = typeConfig[r.type] ?? { label: r.type, color: 'var(--color-dust)' };
+          return (
+            <a href={r.href} target="_blank" rel="noopener"
+              data-resource data-type={r.type}
+              data-subjects={r.subjects.join(' ')}
+              data-text={`${r.title} ${r.desc}`.toLowerCase()}
+              style="display: flex; flex-direction: column; background: var(--color-space-950); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem; text-decoration: none;"
+              onmouseover="this.style.borderColor='rgba(79,142,247,0.3)'"
+              onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+              <div style={`display: inline-block; font-size: 0.68rem; font-weight: 700; color: ${tc.color}; background: color-mix(in srgb, ${tc.color} 12%, transparent); border-radius: 100px; padding: 0.175rem 0.6rem; margin-bottom: 0.75rem; width: fit-content; letter-spacing: 0.04em; text-transform: uppercase;`}>
+                {tc.label}
+              </div>
+              <h3 style="font-family: var(--font-family-display); font-size: 0.95rem; font-weight: 600; color: var(--color-cloud); margin: 0 0 0.5rem; line-height: 1.35;">
+                {r.title}
+              </h3>
+              <p style="font-size: 0.8rem; color: var(--color-dust); line-height: 1.65; margin: 0 0 1rem; flex: 1;">
+                {r.desc}
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.875rem;">
+                {r.subjects.filter(s => s !== 'general').map(s => (
+                  <span style="font-size: 0.65rem; color: var(--color-dust); background: rgba(255,255,255,0.05); border-radius: 4px; padding: 0.1rem 0.45rem;">
+                    {subjectConfig[s] ?? s}
+                  </span>
+                ))}
+              </div>
+              <div style={`font-size: 0.75rem; font-weight: 600; color: ${tc.color};`}>Open in JupyterLite →</div>
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- Empty state -->
+      <div id="empty-state" hidden style="text-align: center; padding: 4rem 1.5rem; color: var(--color-dust);">
+        <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">No resources match your filters.</p>
+        <p style="font-size: 0.875rem;">Try a different search term or clear a filter.</p>
+      </div>
+
     </div>
   </section>
 
@@ -183,11 +259,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
         {[
-          { icon: '🔬', label: 'Science', desc: 'Climate, biology, physics' },
-          { icon: '📐', label: 'Mathematics', desc: 'Statistics, data, probability' },
-          { icon: '🌎', label: 'Social Studies', desc: 'Geography, history, policy' },
-          { icon: '💻', label: 'Technology', desc: 'Python, AI, computer science' },
-          { icon: '📖', label: 'English', desc: 'Text analysis, Shakespeare' },
+          { icon: '🔬', label: 'Science',               desc: 'Climate, biology, physics' },
+          { icon: '📐', label: 'Mathematics',           desc: 'Statistics, data, probability' },
+          { icon: '🌎', label: 'Social Studies',        desc: 'Geography, history, policy' },
+          { icon: '💻', label: 'Technology',            desc: 'Python, AI, computer science' },
+          { icon: '📖', label: 'English',               desc: 'Text analysis, Shakespeare' },
           { icon: '🤖', label: 'Artificial Intelligence', desc: 'Generative AI, ethics' },
         ].map(subject => (
           <div style="background: var(--color-space-900); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 1.25rem;">
@@ -200,105 +276,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Resources -->
-  <section id="resources" style="padding: 6rem 1.5rem; background: var(--color-space-900);">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <p style="font-size: 0.8rem; color: var(--color-callisto); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; text-align: center;">What's available</p>
-      <h2 style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; text-align: center; margin: 0 0 1rem;">
-        Everything runs in your browser
-      </h2>
-      <p style="color: var(--color-dust); text-align: center; max-width: 560px; margin: 0 auto 4rem; line-height: 1.7;">
-        Powered by JupyterLite — no account, no installation, no login required. Click and go.
-      </p>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-        {[
-          {
-            title: 'Learning Modules',
-            desc: '100+ curriculum-aligned notebooks across 7 subject areas, Grades 5–12.',
-            badge: '100+ notebooks',
-            color: 'var(--color-callisto)',
-            href: '#',
-          },
-          {
-            title: 'Data Viz of the Week',
-            desc: '45 stand-alone data visualizations exploring real-world datasets — climate, sports, culture, and more.',
-            badge: '45 visualizations',
-            color: 'var(--color-nebula)',
-            href: '#',
-          },
-          {
-            title: 'AI & Data Science Course',
-            desc: 'A 12-lesson structured course from data basics to generative AI and AI ethics.',
-            badge: '12 lessons',
-            color: 'var(--color-aurora)',
-            href: '#',
-          },
-          {
-            title: 'Hackathon Challenges',
-            desc: 'Intro + challenge notebook pairs on Pokémon, music, basketball, and more. A proven student favourite.',
-            badge: '10 themes',
-            color: 'var(--color-stellar)',
-            href: '#',
-          },
-          {
-            title: 'Interesting Problems',
-            desc: '46 self-contained mathematical and data puzzles. Great for enrichment and independent exploration.',
-            badge: '46 notebooks',
-            color: 'var(--color-callisto-light)',
-            href: '#',
-          },
-          {
-            title: 'Lesson Plans',
-            desc: 'Structured plans with teacher and student notebooks for guided Python problem-solving activities.',
-            badge: '23 plans',
-            color: 'var(--color-nebula)',
-            href: '#',
-          },
-        ].map(card => (
-          <a href={card.href} style="
-            display: flex; flex-direction: column;
-            background: var(--color-space-800);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 12px;
-            padding: 1.75rem;
-            text-decoration: none;
-            transition: border-color 0.2s;
-          ">
-            <div style={`display: inline-block; font-size: 0.75rem; font-weight: 600; color: ${card.color}; background: color-mix(in srgb, ${card.color} 12%, transparent); border-radius: 100px; padding: 0.25rem 0.75rem; margin-bottom: 1rem; width: fit-content;`}>
-              {card.badge}
-            </div>
-            <h3 style="font-family: var(--font-family-display); font-size: 1.1rem; font-weight: 600; color: var(--color-cloud); margin: 0 0 0.75rem; line-height: 1.3;">
-              {card.title}
-            </h3>
-            <p style="font-size: 0.875rem; color: var(--color-dust); line-height: 1.7; margin: 0 0 1.5rem; flex: 1;">
-              {card.desc}
-            </p>
-            <div style={`font-size: 0.875rem; font-weight: 600; color: ${card.color}; display: flex; align-items: center; gap: 0.375rem;`}>
-              ▶ Try in browser
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- AI section -->
   <section style="padding: 6rem 1.5rem; max-width: 1200px; margin: 0 auto;">
-    <div style="
-      background: linear-gradient(135deg, rgba(124,77,255,0.08) 0%, rgba(79,142,247,0.08) 100%);
-      border: 1px solid rgba(124,77,255,0.2);
-      border-radius: 16px;
-      padding: 4rem;
-      position: relative;
-      overflow: hidden;
-    ">
-      <div aria-hidden="true" style="
-        position: absolute; right: -60px; top: -60px;
-        width: 300px; height: 300px; border-radius: 50%;
-        background: radial-gradient(circle, rgba(124,77,255,0.12) 0%, transparent 70%);
-        pointer-events: none;
-      "></div>
+    <div style="background: linear-gradient(135deg, rgba(124,77,255,0.08) 0%, rgba(79,142,247,0.08) 100%); border: 1px solid rgba(124,77,255,0.2); border-radius: 16px; padding: 4rem; position: relative; overflow: hidden;">
+      <div aria-hidden="true" style="position: absolute; right: -60px; top: -60px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(124,77,255,0.12) 0%, transparent 70%); pointer-events: none;"></div>
       <div style="max-width: 640px; position: relative;">
         <p style="font-size: 0.8rem; color: var(--color-nebula); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Where we're going</p>
         <h2 style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1.25rem;">
@@ -310,16 +291,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p style="color: var(--color-dust); line-height: 1.8; margin-bottom: 2rem;">
           Because understanding AI isn't just a technical skill — it's a citizenship skill.
         </p>
-        <a href="#" style="
-          display: inline-flex; align-items: center; gap: 0.5rem;
-          background: var(--color-nebula);
-          color: #fff;
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 0.95rem;
-          padding: 0.75rem 1.75rem;
-          border-radius: 8px;
-        ">
+        <a href="https://callysto.github.io/jupyterlite/lab?path=data-science-and-artificial-intelligence%2F" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-nebula); color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 0.75rem 1.75rem; border-radius: 8px;">
           Explore the AI course
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -334,43 +306,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <blockquote style="font-family: var(--font-family-display); font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 500; line-height: 1.7; color: var(--color-cloud); margin: 0 0 2rem; font-style: italic;">
         Students who I thought wouldn't like coding or doing a computer-type skill are saying, 'this is pretty cool.' And at the end of the day I always want them to work on teamwork, communication, problem solving, and conceptual learning that goes beyond just the textbook.
       </blockquote>
-      <cite style="font-style: normal; color: var(--color-dust); font-size: 0.9rem; font-weight: 500;">
-        — Jenn O'Neill, Teacher
-      </cite>
+      <cite style="font-style: normal; color: var(--color-dust); font-size: 0.9rem; font-weight: 500;">— Jenn O'Neill, Teacher</cite>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" style="padding: 6rem 1.5rem; max-width: 1200px; margin: 0 auto; text-align: center;">
-    <h2 style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; letter-spacing: -0.02em; margin: 0 0 1rem;">
-      Have questions?
-    </h2>
+    <h2 style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; letter-spacing: -0.02em; margin: 0 0 1rem;">Have questions?</h2>
     <p style="color: var(--color-dust); margin: 0 0 2rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7;">
       We're here to help. Email us if you have questions about using Callysto in your classroom.
     </p>
-    <a href="mailto:contact@callysto.ca" style="
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      border: 1px solid rgba(79,142,247,0.3);
-      color: var(--color-callisto);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.875rem 2rem;
-      border-radius: 8px;
-    ">
+    <a href="mailto:contact@callysto.ca" style="display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(79,142,247,0.3); color: var(--color-callisto); text-decoration: none; font-weight: 600; font-size: 1rem; padding: 0.875rem 2rem; border-radius: 8px;">
       contact@callysto.ca
     </a>
   </section>
 
   <!-- Footer -->
-  <footer style="
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 2.5rem 1.5rem;
-    text-align: center;
-    color: var(--color-dust);
-    font-size: 0.85rem;
-  ">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 1rem;">
+  <footer style="border-top: 1px solid rgba(255,255,255,0.06); padding: 2.5rem 1.5rem; text-align: center; color: var(--color-dust); font-size: 0.85rem;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
       <span>© {new Date().getFullYear()} Callysto</span>
       <div style="display: flex; gap: 2rem;">
         <a href="/privacy" style="color: var(--color-dust); text-decoration: none;">Privacy</a>
@@ -381,3 +334,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </footer>
 
 </BaseLayout>
+
+<script>
+  const state = { type: 'all', subject: 'all', search: '' };
+
+  function update() {
+    const cards = document.querySelectorAll('[data-resource]');
+    const empty = document.getElementById('empty-state');
+    let visible = 0;
+    cards.forEach(card => {
+      const typeMatch = state.type === 'all' || card.dataset.type === state.type;
+      const subjectMatch = state.subject === 'all' || card.dataset.subjects.split(' ').includes(state.subject);
+      const searchMatch = !state.search || card.dataset.text.includes(state.search);
+      const show = typeMatch && subjectMatch && searchMatch;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    document.getElementById('result-count').textContent =
+      `Showing ${visible} resource${visible !== 1 ? 's' : ''}`;
+    if (empty) empty.hidden = visible > 0;
+  }
+
+  document.querySelectorAll('.type-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.type = btn.dataset.filter;
+      document.querySelectorAll('.type-filter').forEach(b => {
+        const active = b.dataset.filter === state.type;
+        b.style.background = active ? 'var(--color-callisto)' : 'rgba(255,255,255,0.05)';
+        b.style.color = active ? '#fff' : 'var(--color-dust)';
+        b.style.borderColor = active ? 'transparent' : 'rgba(255,255,255,0.08)';
+      });
+      update();
+    });
+  });
+
+  document.querySelectorAll('.subject-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.subject = btn.dataset.filter;
+      document.querySelectorAll('.subject-filter').forEach(b => {
+        const active = b.dataset.filter === state.subject;
+        b.style.background = active ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.05)';
+        b.style.color = active ? 'var(--color-cloud)' : 'var(--color-dust)';
+        b.style.borderColor = active ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.07)';
+      });
+      update();
+    });
+  });
+
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', e => {
+      state.search = e.target.value.toLowerCase().trim();
+      update();
+    });
+  }
+</script>
